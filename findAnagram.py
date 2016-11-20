@@ -19,19 +19,23 @@ class Solution(object):
         """
 
         anagram_start = []
-
         counter = self.prepareDict(p)
+        
+        main_counter = self.prepareDict(s)
 
-        i = 0
+        print main_counter, counter
+        if len(main_counter.keys()) == 1 and len(main_counter) != 1:
+            if len(counter.keys()) == 1:
+                diff = len(s) - len(p)
+                return range(diff)
+        
         for i in range(0, len(s) - len(p) + 1):
             if s[i:i+len(p)] == p:
-                print i
                 anagram_start.append(i)
             else:
                 sub_counter = self.prepareDict(s[i: i + len(p)])
 
                 if sub_counter == counter:
-                    print i 
                     anagram_start.append(i)
 
         return anagram_start
