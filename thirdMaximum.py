@@ -28,9 +28,9 @@ class Solution(object):
 
         print f,s,t
 
-        if not t:
-            return f
+        if t or t == 0:
+            return t
         else:
-            return t 
+            return f 
 
 print Solution().thirdMax([2,2,3,1,5,5,5,6])
